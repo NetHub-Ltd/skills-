@@ -1,5 +1,5 @@
 # AGENTS.md — NetHub Agent Operating Charter
-## Version 1.2.0
+## Version 1.3.0
 
 > **Purpose:** Binding operating rules for agents working on NetHub repositories.
 > **Start here:** Read the root README, then read the complete current skills repository before project work. This file governs workflow; specialist skills govern engineering and craft.
