@@ -696,9 +696,9 @@ A blocked or unavailable gate must be reported as **NOT VERIFIED**, with the rea
 
 CORE owns engineering correctness, API/data behavior, security, performance, reliability and delivery.
 
-For frontend work, use the dedicated HUMAN-EXPERIENCE, VISUAL-DESIGN and VISUAL-QA skills where applicable. CORE still requires safe contracts, accessible implementation support, secure state handling, performance awareness and correct behavior, but does not attempt to replace the specialized frontend design/experience workflow.
+For frontend work, apply FRONTEND for browser architecture and implementation, HUMAN-EXPERIENCE for usability/accessibility, VISUAL-DESIGN for visual methodology and design systems, and VISUAL-QA for rendered verification. Apply MARKET-DISCOVERY to public discovery and SEO, COMMERCIAL-PRODUCT to monetisation and product economics, and PRIVACY-DATA-GOVERNANCE whenever personal data, analytics, cookies, consent or third-party tracking is involved. These skills complement CORE; none overrides its correctness, security, data-integrity or production-safety requirements.
 
-For market, SEO and growth work, use MARKET-DISCOVERY. Do not make unsupported product claims or introduce SEO mechanisms that compromise correctness, privacy or usability.
+Do not make unsupported product claims, collect data without a defined purpose, or introduce growth mechanisms that compromise privacy, accessibility or user trust.
 
 ---
 
