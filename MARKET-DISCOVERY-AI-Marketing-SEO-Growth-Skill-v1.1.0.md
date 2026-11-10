@@ -1,9 +1,9 @@
 # MARKET-DISCOVERY — AI Marketing, SEO & Growth Skill
-## Version 1.0.0
+## Version 1.1.0
 
 > **Purpose:** Help build products that are discoverable, understandable, trusted, commercially meaningful, and capable of attracting and converting the right users.
 >
-> **Relationship to CORE:** CORE governs engineering correctness. MARKET-DISCOVERY governs market understanding, positioning, discoverability, acquisition, conversion, and growth. It does not replace engineering or UX.
+> **Relationship to other skills:** CORE governs engineering correctness; HUMAN-EXPERIENCE governs user journeys and ethical usability; COMMERCIAL-PRODUCT governs monetisation, unit economics and product revenue; PRIVACY-DATA-GOVERNANCE governs personal data, consent and tracking. MARKET-DISCOVERY owns market understanding, positioning, acquisition, SEO and growth. Coordinate rather than duplicate these disciplines.
 
 ## 1. Mission
 
@@ -78,6 +78,25 @@ A high-volume query with poor product relevance may be less useful than a smalle
 
 Evaluate crawlability, indexability, rendering, information architecture, stable and understandable URLs, metadata, semantic structure, internal linking, appropriate structured data, and performance.
 
+### Technical SEO audit
+
+Inspect the real application and verify, where applicable:
+- Crawlability: robots.txt, XML sitemap, URL patterns, canonical URLs, redirects, internal links, orphan pages and 404 behavior.
+- Indexability: robots directives, canonical consistency, duplicate/thin pages, pagination and private/authenticated route exclusion.
+- Rendering: SSR, SSG, ISR, CSR or hybrid behavior; confirm important page content is available to search systems and does not depend on inaccessible client-only execution.
+- HTML and metadata: unique titles/descriptions, semantic headings, meaningful landmarks, image alternatives, Open Graph metadata and canonical handling.
+- Structured data: select only relevant types (for example Organization, Product, SoftwareApplication, LocalBusiness, Article, BreadcrumbList or Review); markup must describe visible, verifiable content. Never invent reviews, ratings, prices, availability or claims.
+- Internal linking: important page discovery, descriptive anchor text, related resources, user journeys and sensible information/authority flow.
+- Performance: Core Web Vitals (LCP, INP, CLS), image/font delivery, JavaScript bundles, hydration cost, caching and third-party scripts.
+
+For each finding explain the observed problem, user impact, discoverability impact and recommended implementation. Do not infer an indexing problem from a ranking change alone.
+
+### Search architecture
+
+Evaluate whether the product needs a homepage, product pages, industry/use-case pages, educational resources, comparison pages, documentation/support pages or local pages. Map intent to a page purpose and conversion goal. Ask which pages deserve to exist; do not create pages merely to increase URL count.
+
+A useful audit output includes product understanding, current SEO maturity, technical findings, indexing risks, search opportunity map, content gaps, page architecture, structured-data plan, performance improvements and a prioritised roadmap.
+
 Do not use SEO tricks that undermine users.
 
 ## 9. Content Strategy
@@ -149,7 +168,7 @@ Never manufacture testimonials, reviews, customer numbers, credentials, awards, 
 
 ## 14. Conversion
 
-Conversion optimization begins with relevance.
+Conversion optimization begins with relevance. Apply COMMERCIAL-PRODUCT when evaluating offer structure, pricing, paid activation, revenue, retention or cost-to-serve. Apply HUMAN-EXPERIENCE to ensure the journey remains understandable and usable, and PRIVACY-DATA-GOVERNANCE before adding analytics, pixels, remarketing or other tracking.
 
 Evaluate intent match, clarity, value communication, proof, objections, friction, CTA clarity, form burden, pricing comprehension, onboarding entry point, trust, and error recovery.
 
@@ -191,9 +210,9 @@ Where geographically constrained, consider location intent, local terminology, s
 
 Do not create thousands of near-identical geographic pages with no unique value.
 
-## 20. Product ↔ Marketing Boundary
+## 20. Product, commercial and marketing boundaries
 
-MARKET-DISCOVERY identifies demand and discovery requirements. HUMAN-EXPERIENCE owns the human interaction. CORE owns the engineering mechanism.
+MARKET-DISCOVERY identifies demand and discovery requirements. COMMERCIAL-PRODUCT evaluates the business model, monetisation and unit economics. HUMAN-EXPERIENCE owns the human interaction. PRIVACY-DATA-GOVERNANCE governs collection and tracking. CORE/FRONTEND own the engineering mechanisms.
 
 ```text
 MARKET: Users need a clear explanation of credit tracking.

@@ -1,9 +1,9 @@
 # HUMAN-EXPERIENCE — AI UI/UX Product Design Skill
-## Version 1.0.0
+## Version 1.1.0
 
 > **Purpose:** Ensure software is understandable, usable, accessible, coherent, and genuinely helpful to the humans using it.
 >
-> **Relationship to CORE:** CORE governs engineering correctness. HUMAN-EXPERIENCE governs the quality of the human experience. It does not replace engineering, security, architecture, or product strategy.
+> **Relationship to other skills:** CORE governs engineering correctness; FRONTEND implements browser behavior; VISUAL-DESIGN owns the visual system; VISUAL-QA verifies rendered output; COMMERCIAL-PRODUCT defines business outcomes; PRIVACY-DATA-GOVERNANCE governs personal data and consent. HUMAN-EXPERIENCE owns the quality of the human experience and protects user agency.
 
 ## 1. Mission
 
@@ -33,6 +33,8 @@ A beautiful interface that makes the user's job harder is not good UX.
 10. Respect existing product conventions unless evidence supports changing them.
 11. Test assumptions against evidence.
 12. Do not confuse visual polish with usability.
+13. Understand the intended business outcome without subordinating user welfare to conversion.
+14. Remove unnecessary friction, but preserve meaningful disclosure, user control and safe recovery.
 
 ## 3. Evidence Discipline
 
@@ -192,9 +194,9 @@ When modifying an existing interface: understand current behavior, identify what
 
 Validate functional UX, comprehension, recovery, accessibility, responsive behavior, consistency, and perceived performance. If a visual target exists, compare implementation against it.
 
-## 24. UX + CORE Boundary
+## 24. UX + engineering and commercial boundaries
 
-UX owns the human requirement. CORE owns the engineering mechanism.
+UX owns the human requirement. FRONTEND implements the interface; CORE owns trusted engineering mechanisms; COMMERCIAL-PRODUCT owns commercial targets and economics; PRIVACY-DATA-GOVERNANCE owns privacy and consent controls. A conversion goal cannot justify dark patterns, hidden terms or coercive consent.
 
 Example:
 
