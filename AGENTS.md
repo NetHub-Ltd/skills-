@@ -12,11 +12,11 @@ Read the full current contents of the root README, this charter and every skill 
 
 | Skill | Current file pattern | Owns |
 |---|---|---|
-| CORE | \`CORE-AI-Product-Engineering-Skill-*.md\` | Engineering correctness, architecture, backend, APIs, data, security, testing, performance, reliability, observability and delivery |
-| HUMAN-EXPERIENCE | \`HUMAN-EXPERIENCE-AI-UI-UX-Skill-*.md\` | User goals, journeys, usability, interaction behavior, UX writing and accessibility |
-| VISUAL-DESIGN | \`VISUAL-DESIGN-Skill-*.md\` | Visual direction, design systems, visual references and design implementation guidance |
-| VISUAL-QA | \`VISUAL-QA-Skill-*.md\` | Browser/rendered-interface verification against intended design and behavior |
-| MARKET-DISCOVERY | \`MARKET-DISCOVERY-*.md\` | Market understanding, positioning, search intent, SEO, acquisition and growth |
+| CORE | `CORE-AI-Product-Engineering-Skill-*.md` | Engineering correctness, architecture, backend, APIs, data, security, testing, performance, reliability, observability and delivery |
+| HUMAN-EXPERIENCE | `HUMAN-EXPERIENCE-AI-UI-UX-Skill-*.md` | User goals, journeys, usability, interaction behavior, UX writing and accessibility |
+| VISUAL-DESIGN | `VISUAL-DESIGN-Skill-*.md` | Visual direction, design systems, visual references and design implementation guidance |
+| VISUAL-QA | `VISUAL-QA-Skill-*.md` | Browser/rendered-interface verification against intended design and behavior |
+| MARKET-DISCOVERY | `MARKET-DISCOVERY-*.md` | Market understanding, positioning, search intent, SEO, acquisition and growth |
 
 CORE applies to all engineering work. Apply specialist skills when their discipline is involved. A single task may require several skills together. Do not load unrelated material into every task's active reasoning, but do not skip the required initial repository-wide read.
 
@@ -101,15 +101,15 @@ Inspect the repository's actual default branch and current branch state through 
 | Item | Rule |
 |---|---|
 | Default branch | Discover from repository metadata; do not assume |
-| Integration branch | \`dev\` |
-| Feature/fix branch | Create a focused \`feat/*\`, \`fix/*\` or \`chore/*\` branch from the latest \`dev\` |
-| Pull request | Target \`dev\`, not the default branch |
+| Integration branch | `dev` |
+| Feature/fix branch | Create a focused `feat/*`, `fix/*` or `chore/*` branch from the latest `dev` |
+| Pull request | Target `dev`, not the default branch |
 | Merge | The user performs the final merge unless explicitly delegated |
-| Protected/shared branches | Do not push directly to \`main\` or \`dev\` |
+| Protected/shared branches | Do not push directly to `main` or `dev` |
 | History rewriting | No force-push, rebase, reset or squash unless explicitly authorized |
 | Deployment | Never deploy to production without explicit authorization |
 
-If \`dev\` does not exist, create it from the confirmed default branch. If an existing open PR already covers the requested work, update or extend that work when appropriate rather than creating duplicate branches and PRs. Refresh branch and PR state before writing.
+If `dev` does not exist, create it from the confirmed default branch. If an existing open PR already covers the requested work, update or extend that work when appropriate rather than creating duplicate branches and PRs. Refresh branch and PR state before writing.
 
 Use the tools and workflow actually available. If a GitHub connector can perform the required repository operation, do not claim a local clone or shell execution occurred. If a complete workspace is available, inspect and test it rather than relying on connector snippets.
 
@@ -134,7 +134,7 @@ Use the tools and workflow actually available. If a GitHub connector can perform
 8. **Implement:** keep changes focused; avoid unrelated refactors and speculative infrastructure.
 9. **Verify:** run relevant tests and quality gates available in the environment; investigate failures rather than hiding them.
 10. **Review:** inspect the complete diff, contracts, security boundaries, tests, documentation and rollback/recovery.
-11. **Deliver:** open or update a PR to \`dev\`; report evidence and limitations accurately.
+11. **Deliver:** open or update a PR to `dev`; report evidence and limitations accurately.
 
 For a clear, low-risk task, keep the plan concise and proceed. Do not stop after every phase to request approval. For ambiguous or high-risk work, ask the one question or decision that blocks safe progress.
 
