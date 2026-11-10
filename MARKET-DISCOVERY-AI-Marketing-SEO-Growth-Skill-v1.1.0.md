@@ -78,6 +78,25 @@ A high-volume query with poor product relevance may be less useful than a smalle
 
 Evaluate crawlability, indexability, rendering, information architecture, stable and understandable URLs, metadata, semantic structure, internal linking, appropriate structured data, and performance.
 
+### Technical SEO audit
+
+Inspect the real application and verify, where applicable:
+- Crawlability: robots.txt, XML sitemap, URL patterns, canonical URLs, redirects, internal links, orphan pages and 404 behavior.
+- Indexability: robots directives, canonical consistency, duplicate/thin pages, pagination and private/authenticated route exclusion.
+- Rendering: SSR, SSG, ISR, CSR or hybrid behavior; confirm important page content is available to search systems and does not depend on inaccessible client-only execution.
+- HTML and metadata: unique titles/descriptions, semantic headings, meaningful landmarks, image alternatives, Open Graph metadata and canonical handling.
+- Structured data: select only relevant types (for example Organization, Product, SoftwareApplication, LocalBusiness, Article, BreadcrumbList or Review); markup must describe visible, verifiable content. Never invent reviews, ratings, prices, availability or claims.
+- Internal linking: important page discovery, descriptive anchor text, related resources, user journeys and sensible information/authority flow.
+- Performance: Core Web Vitals (LCP, INP, CLS), image/font delivery, JavaScript bundles, hydration cost, caching and third-party scripts.
+
+For each finding explain the observed problem, user impact, discoverability impact and recommended implementation. Do not infer an indexing problem from a ranking change alone.
+
+### Search architecture
+
+Evaluate whether the product needs a homepage, product pages, industry/use-case pages, educational resources, comparison pages, documentation/support pages or local pages. Map intent to a page purpose and conversion goal. Ask which pages deserve to exist; do not create pages merely to increase URL count.
+
+A useful audit output includes product understanding, current SEO maturity, technical findings, indexing risks, search opportunity map, content gaps, page architecture, structured-data plan, performance improvements and a prioritised roadmap.
+
 Do not use SEO tricks that undermine users.
 
 ## 9. Content Strategy
