@@ -116,14 +116,54 @@ If `dev` does not exist, create it from the confirmed default branch. If an exis
 
 Use the tools and workflow actually available. If a GitHub connector can perform the required repository operation, do not claim a local clone or shell execution occurred. If a complete workspace is available, inspect and test it rather than relying on connector snippets.
 
-### 4.1 Issues and PRs
+### 4.1 Mandatory issue and PR tracking
 
-- Search existing issues and open PRs for overlap before creating new work.
-- Use an existing issue where one accurately tracks the task.
-- Create an issue for substantial, independently trackable work when useful; do not create an issue for every small change as ceremony.
+Repository work must be resumable by another qualified agent without access to the original agent, its memory or its chat. The repository and its trackers—not an agent's private context—are the durable project record.
+
+**Tracking is mandatory for every implementation PR.** Before changing tracked project files:
+1. Search open issues and PRs for an exact match or overlap.
+2. Create a dedicated issue if no existing issue accurately covers the requested change. Do not begin implementation on an untracked task.
+3. Make the issue actionable before coding. It must identify:
+   - the user/business outcome and current behavior or defect;
+   - exact affected file paths and symbols/components/endpoints where discoverable;
+   - the requested change as **current/from → desired/to** (not vague goals such as "improve UX" or "fix backend");
+   - explicit in-scope and out-of-scope work;
+   - test cases and quality gates to run, including relevant failure/boundary cases;
+   - measurable acceptance criteria;
+   - dependencies, compatibility/data/security risks and unresolved decisions.
+4. If exact paths or symbols cannot be known until inspection, record the discovery task and update the issue with exact paths, symbols and before→after behavior **before implementation begins**.
+5. Update the issue at implementation start with status, scope, branch/agent-independent task state, intended approach and next action. Keep it current when decisions, blockers or scope materially change.
+
+A single issue may cover a coherent PR-sized feature set. Do not create duplicate issues for every commit or trivial subtask. Every implementation PR must link its issue and include GitHub's closing keyword (Closes #N, Fixes #N or Resolves #N) so the issue closes automatically **when the PR is merged**. Do not manually close it before merge.
+
+**The end-of-implementation tracker update is gated.** Do not mark work complete or post the final completion update until:
+- the PR has been opened against `dev`;
+- all required CI checks and configured quality gates have completed successfully (green);
+- acceptance criteria have been checked against evidence;
+- the final diff and test results have been reviewed.
+
+Then update the issue with the PR link, final changed paths, acceptance results, exact tests/checks and outcomes, remaining limitations/risks, and the fact that it will close on merge. If CI is red, pending, skipped unexpectedly or unavailable, keep the issue in progress/blocked, record the exact gate and next action, and do not claim completion. Do not bypass, weaken or silently waive a required gate.
+
+**No stale or orphaned issues.**
+- At task start, inspect relevant open issues and PRs; at task end, reconcile every issue touched by the work.
+- Every open issue must communicate its current status, owner or responsible role, latest meaningful progress, blocker (if any), and concrete next action.
+- Reconcile stale issues: update and continue active work, document blockers and a review point, or close completed/duplicate/superseded work with a clear explanation. Never silently close unrelated work or leave an issue stale merely because the original agent disappeared.
+- Use the repository's configured stale-review interval; if none exists, flag issues with no meaningful update for 14 calendar days for review. Do not auto-close active work solely due to age.
+
+**Agent-independent handoff.** Before ending a session, pausing, changing agents or handing off unfinished work, update the issue and/or PR with:
+- current status and precise next action;
+- branch and latest relevant commit SHA;
+- files/symbols changed and remaining;
+- decisions made and rationale;
+- tests already run and exact results; tests not run and why;
+- CI state, failing/pending checks and links;
+- blockers, risks, dependencies and recovery notes.
+
+The next agent must be able to resume by reading repository instructions, the issue, PR, commits/diff, CI and relevant source/tests. It must not depend on chat history, undocumented assumptions or the previous agent's memory.
+
 - Group a coherent feature set into a focused PR. Split only when independent review, risk or delivery requires it.
-- Every PR must describe scope, verification, limitations, risks and rollback/recovery where relevant.
-- Do not close issues or merge PRs unless explicitly authorized.
+- Every PR must describe scope, issue link, verification, limitations, risks and rollback/recovery where relevant.
+- The user performs the final merge unless explicitly delegated. Never merge or deploy without authorization.
 
 ## 5. Default task workflow
 
@@ -135,7 +175,7 @@ Use the tools and workflow actually available. If a GitHub connector can perform
 6. **Assess:** identify security, data, compatibility, performance, accessibility, reliability and rollout implications.
 7. **Decide:** choose the smallest maintainable design consistent with the repository and skills. Explain material trade-offs; ask only for genuine human decisions.
 8. **Implement:** keep changes focused; avoid unrelated refactors and speculative infrastructure.
-9. **Verify:** run relevant tests and quality gates available in the environment; investigate failures rather than hiding them.
+9. **Verify:** run relevant tests and quality gates available in the environment; investigate failures rather than hiding them. Update the issue/PR with progress, blockers and test outcomes as work proceeds.
 10. **Review:** inspect the complete diff, contracts, security boundaries, tests, documentation and rollback/recovery.
 11. **Deliver:** open or update a PR to `dev`; report evidence and limitations accurately.
 
