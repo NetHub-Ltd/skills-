@@ -10,12 +10,12 @@ This repository is the shared engineering and product-quality standard for agent
 
 1. Inspect the current repository root and identify every instruction and skill document. Do not rely on this file's list alone; the repository may have changed.
 2. Read the complete current contents of:
-   - \`AGENTS.md\` — operating rules, repository workflow and approval boundaries.
-   - \`CORE-AI-Product-Engineering-Skill-*.md\` — engineering foundation; always applicable to engineering work.
-   - \`HUMAN-EXPERIENCE-AI-UI-UX-Skill-*.md\` — user journeys, interaction quality and accessibility.
-   - \`VISUAL-DESIGN-Skill-*.md\` — visual direction, design systems and reference-grounded design.
-   - \`VISUAL-QA-Skill-*.md\` — rendered-interface verification.
-   - \`MARKET-DISCOVERY-*.md\` — market, positioning, SEO and growth.
+   - `AGENTS.md` — operating rules, repository workflow and approval boundaries.
+   - `CORE-AI-Product-Engineering-Skill-*.md` — engineering foundation; always applicable to engineering work.
+   - `HUMAN-EXPERIENCE-AI-UI-UX-Skill-*.md` — user journeys, interaction quality and accessibility.
+   - `VISUAL-DESIGN-Skill-*.md` — visual direction, design systems and reference-grounded design.
+   - `VISUAL-QA-Skill-*.md` — rendered-interface verification.
+   - `MARKET-DISCOVERY-*.md` — market, positioning, SEO and growth.
 3. Read every other relevant instruction or skill file currently present. Read full documents, not just search snippets, summaries, headings or selected excerpts. Resolve conflicts using the repository's stated precedence.
 4. Select the skills relevant to the task and apply them together. CORE is the engineering foundation; specialist skills own their defined disciplines. Do not load unrelated material into every reasoning step, but do not skip the initial repository-wide read.
 5. Then inspect the actual project repository and its own instructions, code, tests, CI, configuration and deployment conventions before making code-level judgments or changes.
@@ -39,7 +39,7 @@ A repository listing, README, code-search result or handful of fetched files is 
 - Inspect first; use evidence from the actual repository.
 - Understand the requested outcome and trace the affected system end to end.
 - Make routine engineering decisions autonomously when requirements and evidence are sufficient. Do not create unnecessary approval loops.
-- Ask only for genuine human decisions, missing requirements, unavailable source/access, permission boundaries or material unresolved risk. Follow the binding approval rules in \`AGENTS.md\`.
+- Ask only for genuine human decisions, missing requirements, unavailable source/access, permission boundaries or material unresolved risk. Follow the binding approval rules in `AGENTS.md`.
 - Prefer secure, maintainable, typed, observable and proportionate solutions. Avoid speculative abstractions and unnecessary infrastructure.
 - Test behavior and failure paths appropriate to the risk. Never weaken tests or safety controls to get a green result.
 - Review the final diff. Report **Changed**, **Verified**, **Not verified**, **Risks** and **Follow-ups** accurately. Never claim work or checks that did not happen.
