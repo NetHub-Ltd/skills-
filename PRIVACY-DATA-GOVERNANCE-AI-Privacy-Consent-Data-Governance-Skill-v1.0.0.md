@@ -15,7 +15,9 @@ Work with CORE for security/data lifecycle; FRONTEND for browser behavior; COMME
 
 Before making a compliance claim identify organisation/controller/processor roles, establishment, affected people and locations, data categories/sensitivity, purposes/means, service/technology, vendors/subprocessors and transfer locations, sector obligations and exemptions.
 
-For Kenya, start with the Data Protection Act, 2019, applicable 2021 regulations and current ODPC guidance. For EU/EEA users assess GDPR and applicable national/ePrivacy rules. For UK users assess UK GDPR and PECR. Other markets may have national or state privacy, consumer, marketing and communications laws.
+For Kenya, start with the Data Protection Act, 2019, applicable 2021 regulations and current ODPC guidance. Assess whether controller/processor registration, a data protection officer, a DPIA, specific sector requirements or other statutory duties apply; do not assume every organisation has identical obligations. For EU/EEA users assess GDPR and applicable national/ePrivacy rules. For UK users assess UK GDPR and PECR. Other markets may have national or state privacy, consumer, marketing and communications laws.
+
+Maintain a jurisdiction-specific obligations register covering applicable registration, transparency, lawful basis, data-subject rights, children/sensitive data, direct marketing, cookies/device access, security, breach notification, international transfers, record keeping and regulator engagement. Record applicability, accountable owner, evidence and review date. Do not declare an obligation inapplicable without a documented basis.
 
 Do not assume one global cookie rule or one lawful basis applies to every processing activity. Verify current official texts, amendments, regulator guidance and territorial scope. Record research date/source. Escalate uncertain interpretations to qualified counsel or the responsible privacy professional.
 
