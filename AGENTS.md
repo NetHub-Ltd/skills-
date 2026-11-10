@@ -1,5 +1,5 @@
 # AGENTS.md — NetHub Agent Operating Charter
-## Version 1.4.0
+## Version 1.5.0
 
 > **Purpose:** Binding operating rules for agents working on NetHub repositories.
 > **Start here:** Read the root README, then read the complete current skills repository before project work. This file governs workflow; specialist skills govern engineering and craft.
@@ -115,6 +115,17 @@ Inspect the repository's actual default branch and current branch state through 
 If `dev` does not exist, create it from the confirmed default branch. If an existing open PR already covers the requested work, update or extend that work when appropriate rather than creating duplicate branches and PRs. Refresh branch and PR state before writing.
 
 Use the tools and workflow actually available. If a GitHub connector can perform the required repository operation, do not claim a local clone or shell execution occurred. If a complete workspace is available, inspect and test it rather than relying on connector snippets.
+
+### 4.0 Repository issue and PR templates are mandatory
+
+For every implementation task, agents MUST use the repository's GitHub templates. This is a required workflow control, not optional guidance.
+
+- Before implementation, create or update the issue using `.github/ISSUE_TEMPLATE/implementation.md`. Populate every applicable section; do not leave template placeholders or vague acceptance criteria. If exact symbols/paths are unknown, inspect first and update the issue with the precise scope before changing project files.
+- Every implementation PR MUST use `.github/PULL_REQUEST_TEMPLATE.md`. Preserve its sections and complete the change-specification, issue links, acceptance evidence, verification, CI readiness, risk and handoff fields. Do not replace it with an unstructured summary.
+- A PR covering multiple issues MUST include a closing keyword for every issue. A single issue may cover a coherent set of changes; do not create duplicate issues for the same scope.
+- Before presenting a PR for user review, verify the template is complete, all linked issues are current, all acceptance criteria have evidence, and every required check for the latest head SHA is green.
+- If GitHub's template is unavailable (for example, a cross-repository contribution), reproduce the same sections in the issue/PR body and record why the repository template could not be applied. Never silently bypass the requirements.
+- Agents must inspect and follow any more specific issue/PR templates in the target project repository; the shared template is the minimum standard, not a reason to ignore project-specific requirements.
 
 ### 4.2 CI ownership and pull-request readiness
 
