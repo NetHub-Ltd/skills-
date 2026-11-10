@@ -1,5 +1,5 @@
 # AGENTS.md — NetHub Agent Operating Charter
-## Version 1.1.0
+## Version 1.2.0
 
 > **Purpose:** Binding operating rules for agents working on NetHub repositories.
 > **Start here:** Read the root README, then read the complete current skills repository before project work. This file governs workflow; specialist skills govern engineering and craft.
@@ -13,20 +13,23 @@ Read the full current contents of the root README, this charter and every skill 
 | Skill | Current file pattern | Owns |
 |---|---|---|
 | CORE | `CORE-AI-Product-Engineering-Skill-*.md` | Engineering correctness, architecture, backend, APIs, data, security, testing, performance, reliability, observability and delivery |
+| FRONTEND | `FRONTEND-AI-Frontend-Engineering-Skill-*.md` | Next.js/React architecture, browser implementation, state, rendering, security and frontend performance |
 | HUMAN-EXPERIENCE | `HUMAN-EXPERIENCE-AI-UI-UX-Skill-*.md` | User goals, journeys, usability, interaction behavior, UX writing and accessibility |
 | VISUAL-DESIGN | `VISUAL-DESIGN-Skill-*.md` | Visual direction, design systems, visual references and design implementation guidance |
-| VISUAL-QA | `VISUAL-QA-Skill-*.md` | Browser/rendered-interface verification against intended design and behavior |
+| VISUAL-QA | `VISUAL-QA-Skill-*.md` | Rendered-interface verification across routes, states, themes and viewports |
+| COMMERCIAL-PRODUCT | `COMMERCIAL-PRODUCT-*.md` | Business model, monetisation, pricing, conversion, retention, analytics and unit economics |
+| PRIVACY-DATA-GOVERNANCE | `PRIVACY-DATA-GOVERNANCE-*.md` | Personal data, lawful purposes, cookies, consent, analytics governance, retention and data rights |
 | MARKET-DISCOVERY | `MARKET-DISCOVERY-*.md` | Market understanding, positioning, search intent, SEO, acquisition and growth |
 
-CORE applies to all engineering work. Apply specialist skills when their discipline is involved. A single task may require several skills together. Do not load unrelated material into every task's active reasoning, but do not skip the required initial repository-wide read.
+CORE applies to all engineering work. FRONTEND applies to browser application work. Apply HUMAN-EXPERIENCE, VISUAL-DESIGN and VISUAL-QA to interface work; MARKET-DISCOVERY to market/SEO/growth work; COMMERCIAL-PRODUCT to monetisation and product economics; and PRIVACY-DATA-GOVERNANCE whenever personal data, cookies, consent, analytics or third-party tracking is involved. A single task may require several skills together. Do not load unrelated material into every task's active reasoning, but do not skip the required initial repository-wide read.
 
 ### 1.1 Conflict resolution
 
 Resolve conflicts in this order:
 
 1. Security, correctness, data integrity and production safety.
-2. Legal and compliance obligations.
-3. User well-being, privacy and accessibility.
+2. Privacy, legal and compliance obligations.
+3. User well-being and accessibility.
 4. Maintainability and operational reliability.
 5. Usability and task clarity.
 6. Discoverability, conversion and growth.
@@ -162,13 +165,13 @@ If a check cannot run, list it under **Not verified**, explain why and state wha
 Use Next.js App Router and TypeScript as the default for new frontend projects unless the existing product, requirements or deployment constraints justify another choice. Do not migrate an existing application just to match the default.
 
 For frontend work:
-1. Read and apply HUMAN-EXPERIENCE, VISUAL-DESIGN and VISUAL-QA in addition to CORE.
+1. Read and apply FRONTEND, HUMAN-EXPERIENCE, VISUAL-DESIGN and VISUAL-QA in addition to CORE.
 2. Inspect the existing design system, global styles, theme tokens, typography, components and route structure before changing UI.
 3. Preserve established visual direction unless the task explicitly calls for a redesign or evidence demonstrates a problem.
 4. Prefer Server Components; introduce client-side JavaScript only for genuine interaction/state needs.
 5. Verify responsive layouts, keyboard/focus behavior, semantics, accessible names, contrast, loading/empty/error/success states and real browser interactions.
 6. Verify rendered output against the design intent. A passing build or component test does not establish visual correctness.
-7. Treat SEO, metadata, structured data, indexing and conversion claims according to MARKET-DISCOVERY and the actual page purpose.
+7. Treat SEO and indexing according to MARKET-DISCOVERY; apply COMMERCIAL-PRODUCT to pricing, onboarding and revenue journeys; apply PRIVACY-DATA-GOVERNANCE to analytics, cookies and personal data.
 8. Protect server-only credentials and enforce authorization at trusted server boundaries; never rely on client-side checks for access control.
 
 Routine implementation within an established design system does not need prior approval. Ask before a material brand, design-system or product-experience direction change outside the requested scope.
