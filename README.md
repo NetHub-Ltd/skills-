@@ -12,10 +12,13 @@ This repository is the shared engineering and product-quality standard for agent
 2. Read the complete current contents of:
    - `AGENTS.md` — operating rules, repository workflow and approval boundaries.
    - `CORE-AI-Product-Engineering-Skill-*.md` — engineering foundation; always applicable to engineering work.
+   - `FRONTEND-AI-Frontend-Engineering-Skill-*.md` — frontend architecture, browser implementation, performance and security.
    - `HUMAN-EXPERIENCE-AI-UI-UX-Skill-*.md` — user journeys, interaction quality and accessibility.
    - `VISUAL-DESIGN-Skill-*.md` — visual direction, design systems and reference-grounded design.
    - `VISUAL-QA-Skill-*.md` — rendered-interface verification.
    - `MARKET-DISCOVERY-*.md` — market, positioning, SEO and growth.
+   - `COMMERCIAL-PRODUCT-*.md` — monetisation, pricing, conversion, retention and unit economics.
+   - `PRIVACY-DATA-GOVERNANCE-*.md` — data governance, privacy, cookies, consent and analytics.
 3. Read every other relevant instruction or skill file currently present. Read full documents, not just search snippets, summaries, headings or selected excerpts. Resolve conflicts using the repository's stated precedence.
 4. Select the skills relevant to the task and apply them together. CORE is the engineering foundation; specialist skills own their defined disciplines. Do not load unrelated material into every reasoning step, but do not skip the initial repository-wide read.
 5. Then inspect the actual project repository and its own instructions, code, tests, CI, configuration and deployment conventions before making code-level judgments or changes.
@@ -49,9 +52,12 @@ A repository listing, README, code-search result or handful of fetched files is 
 | Skill | Primary responsibility |
 |---|---|
 | CORE | Engineering correctness, architecture, backend, APIs, data, security, testing, performance, reliability, observability and delivery |
+| FRONTEND | Next.js/React architecture, browser implementation, rendering, state, security and frontend performance |
 | HUMAN-EXPERIENCE | User goals, journeys, usability, interaction behavior and accessibility |
 | VISUAL-DESIGN | Visual language, design systems, visual references and implementation-ready design rules |
-| VISUAL-QA | Evidence-based verification of rendered UI against approved targets |
+| VISUAL-QA | Evidence-based verification of rendered UI across routes, states, themes and viewports |
 | MARKET-DISCOVERY | Market understanding, positioning, search intent, SEO, acquisition and growth |
+| COMMERCIAL-PRODUCT | Monetisation, pricing, conversion, retention, analytics and unit economics |
+| PRIVACY-DATA-GOVERNANCE | Data inventory, lawful processing, cookies, consent, rights, retention and privacy risk |
 
 **Do not ask the user to repeat information already available in the repository or conversation. Do not confuse confident reasoning with verified evidence. Understand the real system, apply the right skills, and deliver work that can be independently checked.**
