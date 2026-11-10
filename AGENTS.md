@@ -1,5 +1,5 @@
 # AGENTS.md — NetHub Agent Operating Charter
-## Version 1.3.0
+## Version 1.4.0
 
 > **Purpose:** Binding operating rules for agents working on NetHub repositories.
 > **Start here:** Read the root README, then read the complete current skills repository before project work. This file governs workflow; specialist skills govern engineering and craft.
@@ -116,6 +116,36 @@ If `dev` does not exist, create it from the confirmed default branch. If an exis
 
 Use the tools and workflow actually available. If a GitHub connector can perform the required repository operation, do not claim a local clone or shell execution occurred. If a complete workspace is available, inspect and test it rather than relying on connector snippets.
 
+### 4.2 CI ownership and pull-request readiness
+
+CI is part of implementation, not a post-implementation report. The implementing agent owns the complete feedback loop for every code push until all required checks are green.
+
+**Before the first push**
+- Inspect the repository's actual CI workflows, branch protection/required checks where accessible, test scripts and project quality gates.
+- Identify the required checks for this change and ensure the pipeline covers the affected code and risk. If required CI is missing or insufficient, add or repair appropriate automated gates within scope and permissions; do not treat an absent pipeline as a pass.
+- Run the relevant checks locally where an execution environment exists. Record any checks that cannot be run locally and rely on the configured CI only where it genuinely covers them.
+
+**After every push**
+1. Record the pushed commit SHA and update the linked issue/PR with the commit, change summary and CI state.
+2. Inspect the status checks and workflow runs for that exact commit. Do not assume the previous commit's green result applies to a new push.
+3. Monitor queued and in-progress checks until they reach terminal states. A pending or missing result is not green.
+4. For every failure, inspect the failed job, step and logs; identify whether it is caused by the code, tests, configuration, dependency/environment, flaky infrastructure or an external service.
+5. Fix failures caused by the change or repository configuration. Add or correct regression coverage where appropriate, commit and push the fix, then repeat this entire loop for the new SHA.
+6. Retry a failed job only when evidence indicates a transient runner/service failure; a retry does not replace diagnosing a reproducible failure.
+7. Keep the issue/PR updated with failed check names, causes, corrective changes, rerun results and remaining blockers. Never hide, dismiss, weaken or bypass a required check to obtain a green badge.
+
+**PR review readiness — all conditions mandatory**
+- The PR is open against the correct integration branch.
+- Every required check for the latest PR head SHA has completed successfully.
+- No required check is pending, missing, skipped unexpectedly, neutral, cancelled or failing. A skipped check is acceptable only when its condition is intentional, documented and the repository's required-check policy permits it.
+- All issue acceptance criteria are evidenced; relevant tests and final diff review are complete.
+- The PR links every issue it covers and contains a closing keyword for each one (for example, `Closes #12` and `Fixes #15`). Verify the closing references are present in the PR body.
+- The linked issues and PR contain current status, latest commit, CI results, test evidence, blockers (none for a ready PR) and next action.
+
+Do not request user review, mark the PR ready for review, or tell the user it is ready while any required gate is unresolved. If a required check cannot run because CI is unavailable or permissions are missing, report the PR as blocked/not review-ready, document the exact missing capability and next action, and ask only for the access or decision genuinely required. The agent remains responsible for fixing failures it can fix; it must not hand routine CI repair back to the user.
+
+The final tracker completion update is posted only after the PR is review-ready under these rules. The issue remains open until GitHub closes it automatically on merge.
+
 ### 4.1 Mandatory issue and PR tracking
 
 Repository work must be resumable by another qualified agent without access to the original agent, its memory or its chat. The repository and its trackers—not an agent's private context—are the durable project record.
@@ -175,9 +205,9 @@ The next agent must be able to resume by reading repository instructions, the is
 6. **Assess:** identify security, data, compatibility, performance, accessibility, reliability and rollout implications.
 7. **Decide:** choose the smallest maintainable design consistent with the repository and skills. Explain material trade-offs; ask only for genuine human decisions.
 8. **Implement:** keep changes focused; avoid unrelated refactors and speculative infrastructure.
-9. **Verify:** run relevant tests and quality gates available in the environment; investigate failures rather than hiding them. Update the issue/PR with progress, blockers and test outcomes as work proceeds.
-10. **Review:** inspect the complete diff, contracts, security boundaries, tests, documentation and rollback/recovery.
-11. **Deliver:** open or update a PR to `dev`; report evidence and limitations accurately.
+9. **Verify:** run relevant tests and quality gates available in the environment; investigate failures rather than hiding them. The implementing agent owns CI monitoring and repair after every push until the latest SHA is fully green; update the issue/PR with every pushed SHA, CI state, failure diagnosis, fixes and test outcomes.
+10. **Review:** inspect the complete diff, contracts, security boundaries, tests, documentation and rollback/recovery. Do not request user review until the PR meets every CI and tracker readiness condition in §4.2.
+11. **Deliver:** open or update a PR to `dev`; verify all required checks on the latest PR head are green, every covered issue has a closing keyword, and tracker updates are current before presenting it for user review. Report evidence and limitations accurately.
 
 For a clear, low-risk task, keep the plan concise and proceed. Do not stop after every phase to request approval. For ambiguous or high-risk work, ask the one question or decision that blocks safe progress.
 
