@@ -1,5 +1,5 @@
 # CORE — AI Product & Backend Engineering Standard
-## Version 1.3.0
+## Version 1.4.0
 
 > **Mission:** Deliver correct, secure, reliable, maintainable, observable and performant software through evidence-backed engineering—not code volume.
 >
@@ -713,7 +713,11 @@ Keep issues agent-independent and resumable. Record status, responsible owner/ro
 
 At task start, inspect relevant open issues/PRs for overlap and stale state. At task end, reconcile every touched issue. Every open issue must have a meaningful current status, responsible owner/role, latest progress, blocker if any and next action. Continue active work, document blockers/review points, or close completed/duplicate/superseded issues with reasons. Follow the repository stale-review policy; absent one, flag issues with no meaningful update for 14 calendar days. Never auto-close active work solely because it is old.
 
-### 13.3 CI ownership after every push
+### 13.3 Mandatory issue and PR templates
+
+Use the repository's `.github/ISSUE_TEMPLATE/implementation.md` for every implementation issue and `.github/PULL_REQUEST_TEMPLATE.md` for every implementation PR. Populate every applicable section with exact paths/symbols, before→after behavior, measurable acceptance criteria, required tests, current tracker state, CI evidence and agent-independent handoff details. Do not omit, rename away or replace template sections with a vague summary. For cross-repository work where the templates cannot be applied automatically, reproduce the same structure and document the reason. Project-specific templates may add requirements but must not weaken this shared minimum.
+
+### 13.4 CI ownership after every push
 
 The implementing agent owns CI from the first push through review readiness. CI is a continuous implementation feedback loop, not a final administrative check.
 
