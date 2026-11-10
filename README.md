@@ -1,160 +1,57 @@
-# NetHub Agent Skills
+# NetHub Agent Skills — Start Here
 
-The NetHub skills library defines reusable operating disciplines for AI agents working across NetHub products.
+**Repository:** https://github.com/NetHub-Ltd/skills-
 
-The goal is not to make agents produce more output. The goal is to make their decisions **evidence-backed, explicit, reusable, safe, and consistent**.
+This repository is the shared engineering and product-quality standard for agents working on NetHub projects. It exists so agents apply established professional practices independently—not so the user has to teach software engineering fundamentals in every task.
 
-## Skills
+## Instructions for the agent
 
-| Skill | File | Owns |
-|---|---|---|
-| **CORE** — AI Product Engineering | `CORE-AI-Product-Engineering-Skill-v1.0.0.md` | Architecture, correctness, security, data, APIs, testing, reliability, observability, delivery safety |
-| **HUMAN-EXPERIENCE** — AI UI/UX | `HUMAN-EXPERIENCE-AI-UI-UX-Skill-v1.0.0.md` | User journeys, usability, interaction design, information architecture, accessibility, UX writing |
-| **VISUAL-DESIGN** — AI Visual Design | `VISUAL-DESIGN-Skill-v1.0.0.md` | Visual direction, references, design systems, typography, color, composition, visual states, responsive visual rules |
-| **VISUAL-QA** — AI Visual QA | `VISUAL-QA-Skill-v1.0.0.md` | Rendered visual verification, visual regression, responsive/state inspection, evidence-backed findings |
-| **MARKET-DISCOVERY** — AI Marketing/SEO/Growth | `MARKET-DISCOVERY-AI-Marketing-SEO-Growth-Skill-v1.0.0.md` | Market understanding, positioning, search intent, discoverability, messaging, conversion, growth |
+**Before doing project work, read and apply the complete skills repository. Do not stop at this README.**
 
-## Ownership Model
+1. Inspect the current repository root and identify every instruction and skill document. Do not rely on this file's list alone; the repository may have changed.
+2. Read the complete current contents of:
+   - \`AGENTS.md\` — operating rules, repository workflow and approval boundaries.
+   - \`CORE-AI-Product-Engineering-Skill-*.md\` — engineering foundation; always applicable to engineering work.
+   - \`HUMAN-EXPERIENCE-AI-UI-UX-Skill-*.md\` — user journeys, interaction quality and accessibility.
+   - \`VISUAL-DESIGN-Skill-*.md\` — visual direction, design systems and reference-grounded design.
+   - \`VISUAL-QA-Skill-*.md\` — rendered-interface verification.
+   - \`MARKET-DISCOVERY-*.md\` — market, positioning, SEO and growth.
+3. Read every other relevant instruction or skill file currently present. Read full documents, not just search snippets, summaries, headings or selected excerpts. Resolve conflicts using the repository's stated precedence.
+4. Select the skills relevant to the task and apply them together. CORE is the engineering foundation; specialist skills own their defined disciplines. Do not load unrelated material into every reasoning step, but do not skip the initial repository-wide read.
+5. Then inspect the actual project repository and its own instructions, code, tests, CI, configuration and deployment conventions before making code-level judgments or changes.
 
-The skills are complementary:
+## Source access is not the same as repository access
 
-```
-CORE
- ├── Engineering foundation
- ├── Correctness / security / data
- └── Delivery safety
+A GitHub connector may expose only metadata, search results, selected files or file-write actions. **Do not assume it gives you the complete source code, a local workspace, shell access or the ability to run tests.**
 
-HUMAN-EXPERIENCE
- ├── Human task
- ├── Journey / usability
- └── Interaction quality
+Establish what you can actually access:
 
-VISUAL-DESIGN
- ├── Visual language
- ├── Design system
- └── Reference-backed appearance
+- If you have a complete checkout and can inspect files and run commands, inspect the project directly.
+- If you have a complete source archive but no runtime, inspect the source and clearly report which checks cannot run.
+- If you only have partial connector access, do not pretend you have inspected the codebase. Explain the limitation and ask the user for a repository ZIP/archive or another complete source-delivery method before code-level work.
+- Request a snapshot for the intended branch/commit where possible. It should include source, manifests and lockfiles, configuration examples, migrations, tests, CI and deployment files, nested instructions and required submodule content.
+- Never ask the user to include secrets, environment files, private keys, credentials, production data, dependency caches or generated build artifacts.
 
-VISUAL-QA
- ├── Rendered evidence
- ├── Conformance
- └── Visual regression
+A repository listing, README, code-search result or handful of fetched files is not a complete source inspection. Do not implement against unseen architecture. If command execution is unavailable, do not claim tests, builds, type checks or runtime behavior were verified.
 
-MARKET-DISCOVERY
- ├── Demand
- ├── Positioning
- └── Discovery / growth
-```
+## How to work
 
-A skill should own a decision once. Overlapping skills collaborate rather than duplicate each other's workflow.
+- Inspect first; use evidence from the actual repository.
+- Understand the requested outcome and trace the affected system end to end.
+- Make routine engineering decisions autonomously when requirements and evidence are sufficient. Do not create unnecessary approval loops.
+- Ask only for genuine human decisions, missing requirements, unavailable source/access, permission boundaries or material unresolved risk. Follow the binding approval rules in \`AGENTS.md\`.
+- Prefer secure, maintainable, typed, observable and proportionate solutions. Avoid speculative abstractions and unnecessary infrastructure.
+- Test behavior and failure paths appropriate to the risk. Never weaken tests or safety controls to get a green result.
+- Review the final diff. Report **Changed**, **Verified**, **Not verified**, **Risks** and **Follow-ups** accurately. Never claim work or checks that did not happen.
 
-## Evidence Vocabulary
+## Skill ownership
 
-All skills use the vocabulary established by `AGENTS.md`:
+| Skill | Primary responsibility |
+|---|---|
+| CORE | Engineering correctness, architecture, backend, APIs, data, security, testing, performance, reliability, observability and delivery |
+| HUMAN-EXPERIENCE | User goals, journeys, usability, interaction behavior and accessibility |
+| VISUAL-DESIGN | Visual language, design systems, visual references and implementation-ready design rules |
+| VISUAL-QA | Evidence-based verification of rendered UI against approved targets |
+| MARKET-DISCOVERY | Market understanding, positioning, search intent, SEO, acquisition and growth |
 
-- **OBSERVED** — directly visible in repository, source, requirements, supplied evidence, or rendered output.
-- **VERIFIED** — confirmed by a test, command, runtime result, measurement, or authoritative source.
-- **INFERRED** — reasoned conclusion from evidence.
-- **PROPOSED** — recommendation or design/implementation decision not yet established.
-- **UNKNOWN** — not established.
-
-Never turn a proposal into a fact or a visual impression into verification.
-
-## Visual Design Philosophy
-
-Visual design is deliberately **reference-driven**.
-
-Agents should not manufacture a visual language from personal taste alone. Before making significant visual decisions, they should look for:
-
-1. approved project design artifacts
-2. existing product tokens/components
-3. established design systems and documented principles
-4. relevant real production interfaces
-5. curated visual references
-6. agent invention only where necessary, clearly marked as **PROPOSED**
-
-A reference is not a template to copy. Extract the underlying decision and evaluate whether it fits the product.
-
-> **Do not replace agent imagination with another agent's imagination. Replace ungrounded imagination with evidence, principles, references, and explicit decisions.**
-
-## Recommended Workflow
-
-```
-CONTEXT
-  ↓
-CORE
-  ↓
-HUMAN-EXPERIENCE / VISUAL-DESIGN / MARKET-DISCOVERY
-  ↓
-DESIGN + APPROVAL
-  ↓
-IMPLEMENTATION
-  ↓
-VISUAL-QA (when rendered UI exists)
-  ↓
-CORE VERIFICATION
-  ↓
-REPORT
-```
-
-Not every task loads every skill.
-
-Examples:
-
-- Backend bug → CORE
-- New user workflow → CORE + HUMAN-EXPERIENCE
-- New dashboard visual direction → CORE + HUMAN-EXPERIENCE + VISUAL-DESIGN
-- Implementing an approved interface → CORE + relevant UX/design skills
-- Checking a rendered interface → VISUAL-QA + relevant UX/design context
-- Landing page / acquisition work → CORE + HUMAN-EXPERIENCE + VISUAL-DESIGN + MARKET-DISCOVERY
-
-## Reference Registry
-
-When visual research materially informs a decision, maintain a small registry:
-
-| Source | Context | Principle extracted | Applicability | Evidence level |
-|---|---|---|---|---|
-| URL / artifact | What was inspected | What was learned | Why it fits / does not fit | Project / system / production / curated / proposed |
-
-This keeps visual decisions traceable and makes future design work faster.
-
-## Repository Protocol
-
-`AGENTS.md` is the binding operating charter.
-
-In particular:
-
-- inspect before changing
-- classify evidence
-- obtain required human approval
-- work from `dev`
-- create feature branches from the latest `dev`
-- open PRs targeting `dev`
-- verify before claiming success
-- never commit secrets
-- report Changed / Verified / Not verified / Risks / Rollback / Follow-ups
-
-## Versioning and Contributions
-
-Skills are versioned documents.
-
-When changing a skill:
-
-1. preserve its responsibility boundary
-2. explain meaningful behavior changes
-3. update the version
-4. avoid silently changing another skill's ownership
-5. keep guidance implementation-agnostic unless implementation detail is necessary
-6. prefer concrete evidence and repeatable procedures over aesthetic or architectural slogans
-
-New skills should answer:
-
-- What decision/problem does this skill own?
-- What evidence does it require?
-- What is explicitly out of scope?
-- How does it interact with existing skills?
-- What does a good output look like?
-- How can another agent verify its work?
-
-## Final Principle
-
-**Understand first. Ground decisions in evidence. Make ownership explicit. Build safely. Verify what was actually done.**
+**Do not ask the user to repeat information already available in the repository or conversation. Do not confuse confident reasoning with verified evidence. Understand the real system, apply the right skills, and deliver work that can be independently checked.**
