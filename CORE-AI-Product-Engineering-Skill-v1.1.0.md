@@ -489,18 +489,23 @@ Exploratory testing is valuable for discovering unanticipated behavior. Use it t
 
 Ad hoc checks do not replace repeatable automated tests for important behavior. Do not report exploratory testing as formal coverage.
 
-### 8.8 Test quality
+### 8.8 Test quality and change coverage
 
-- Test behavior and contracts, not private implementation trivia.
+- Test behavior, contracts and externally observable outcomes, not private implementation trivia.
+- Every new or changed executable line must be covered by an automated test wherever technically meaningful. Prefer a focused unit test for isolated logic; use component, service, integration, API/contract or end-to-end tests when that is the correct boundary.
+- Cover each meaningful behavior, conditional branch, state transition, validation rule, error path and boundary condition introduced or changed. A line-coverage percentage alone does not prove correctness.
+- Do not write artificial tests for comments, formatting, generated code, declarative wiring or trivial framework glue when a higher-level test already verifies the behavior. Record a brief reason for material untested logic; do not silently leave business/security logic untested.
+- Tests must fail when the intended behavior is broken. Avoid tests that merely execute lines, mirror implementation details, assert meaningless snapshots or mock away the behavior under test.
 - Keep tests deterministic, isolated and repeatable.
 - Use realistic factories/fixtures without copying production secrets or personal data.
 - Control time, randomness, external calls and concurrency where necessary.
 - Prefer real databases/integration services for tests of database semantics; mocks cannot prove SQL constraints or transaction behavior.
 - Avoid excessive mocking that makes tests pass while real boundaries fail.
-- Assert meaningful outcomes and failure behavior.
-- Keep test names and failure messages diagnostic.
+- Assert meaningful outcomes and failure behavior; keep test names and failure messages diagnostic.
 - Do not delete, skip, weaken or rewrite a failing test merely to make CI green. Establish whether the test or implementation is wrong and explain evidence.
 - For a bug fix, reproduce the defect first where feasible, add a regression test, then verify the fix.
+- Minimise the change surface: no unrelated refactors, speculative abstractions or test-only production changes. Do not add code solely to satisfy a coverage percentage.
+- Minimise compute waste without reducing confidence: run focused tests during iteration, then the required full local/CI gates once; avoid redundant suites and expensive benchmarks unless risk or an explicit requirement justifies them. Never skip a required gate merely to save time or compute.
 
 ---
 
@@ -650,6 +655,24 @@ Prefer the smallest trustworthy dependency set. Pin/lock versions using reposito
 
 ## 13. Quality Gates and Definition of Done
 
+### 13.1 Mandatory issue-to-PR lifecycle
+
+Every implementation PR must have one actionable GitHub issue before code changes begin. The issue is the work contract and must state the user outcome, current behavior, exact files and symbols to change, current/from → desired/to behavior, scope/non-goals, acceptance criteria and the specific tests/quality gates required. If inspection is needed to identify paths, update the issue with exact paths and symbols before implementation.
+
+Update the issue at the beginning of implementation and as material progress, decisions or blockers arise. At completion, the issue may receive its final completion update only after the PR is open against the integration branch and every required CI gate is green. That final update records the PR, changed files, acceptance evidence, tests and results, limitations and remaining risks. Red, pending, unexpectedly skipped or unavailable required checks mean the issue remains in progress/blocked; never describe the work as complete.
+
+Every PR body must contain a GitHub closing keyword such as Closes #N, Fixes #N or Resolves #N for its implementation issue. GitHub closes the issue on merge; do not manually close it before merge. The human owner retains merge authority.
+
+Keep issues agent-independent and resumable. Record status, responsible owner/role, current branch and commit, completed work, exact next action, decisions/rationale, changed files, tests/results, CI state, blockers, dependencies and recovery notes. Another agent must be able to resume from the repository, issue, PR, commits/diff and CI alone—not chat history or private model memory.
+
+At task start, inspect relevant open issues/PRs for overlap and stale state. At task end, reconcile every touched issue. Every open issue must have a meaningful current status, responsible owner/role, latest progress, blocker if any and next action. Continue active work, document blockers/review points, or close completed/duplicate/superseded issues with reasons. Follow the repository stale-review policy; absent one, flag issues with no meaningful update for 14 calendar days. Never auto-close active work solely because it is old.
+
+### 13.2 Minimal-change and compute discipline
+
+Make the smallest change that fully satisfies the issue and its acceptance criteria. Avoid unrelated refactors, drive-by formatting, speculative dependencies, redundant abstractions and changes that do not improve correctness, security, usability, maintainability or the requested outcome. Explain any necessary scope expansion before proceeding.
+
+Use a risk-proportionate verification sequence: focused tests while iterating, then all required quality gates. Avoid redundant reruns and expensive performance suites when they provide no relevant evidence. Compute efficiency never justifies skipping a required test, security check or CI gate.
+
 Select gates based on changed behavior and risk. For meaningful backend changes, consider:
 
 - relevant unit and integration tests;
@@ -709,15 +732,18 @@ Do not make unsupported product claims, collect data without a defined purpose, 
 ~~~text
 ACCESS CHECK
   → INSTRUCTIONS + SKILLS
+  → ISSUE / TRACKER CHECK + START UPDATE
   → SOURCE INSPECTION
   → USER / BUSINESS OUTCOME
   → TRACE + DIAGNOSE
   → IMPACT / RISK
   → DESIGN DECISION
-  → IMPLEMENT
+  → MINIMAL IMPLEMENTATION
   → TEST + QUALITY GATES
   → DIFF REVIEW
-  → REPORT
+  → OPEN PR + LINK ISSUE
+  → WAIT FOR ALL REQUIRED CI GATES GREEN
+  → FINAL ISSUE UPDATE + HANDOFF-READY REPORT
 ~~~
 
 For a low-risk, well-specified task, keep the explanation brief and proceed within granted authority. For high-risk or ambiguous work, explain the material decision and obtain the required human judgment before crossing it.
@@ -730,6 +756,8 @@ For a low-risk, well-specified task, keep the explanation brief and proceed with
 - **Risks:** unresolved uncertainty or operational concerns.
 - **Rollback:** reversal or forward-recovery approach when relevant.
 - **Follow-ups:** useful work intentionally excluded.
+- **Tracker:** issue link/status, PR link, CI gate state and exact next action; confirm the issue uses an automatic closing keyword and will close on merge.
+- **Handoff:** branch/commit, current state, decisions, blockers and next action sufficient for another agent to resume without chat history.
 
 Use concrete evidence. Never report a command, test, review, deployment, source inspection or successful outcome that did not happen.
 
