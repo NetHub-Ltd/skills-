@@ -65,7 +65,7 @@ Measure the bottleneck and verify the improvement. Do not optimise by guesswork.
 
 ## 9. SEO and public page behavior
 
-Apply MARKET-DISCOVERY and the Google SEO reference to indexable public pages: server-render meaningful content, metadata, canonical URLs, robots directives, sitemap, semantic headings, internal links, structured data matching visible content, image alternatives, Open Graph, redirects and useful 404 behavior.
+Apply MARKET-DISCOVERY and any project-provided SEO reference to indexable public pages: server-render meaningful content, metadata, canonical URLs, robots directives, sitemap, semantic headings, internal links, structured data matching visible content, image alternatives, Open Graph, redirects and useful 404 behavior.
 
 Authenticated, private, transactional and user-specific pages should not be indexed by default. Prevent private data leakage through metadata, pre-rendering, static generation, caching or structured data.
 
