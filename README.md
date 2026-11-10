@@ -45,6 +45,8 @@ A repository listing, README, code-search result or handful of fetched files is 
 - Ask only for genuine human decisions, missing requirements, unavailable source/access, permission boundaries or material unresolved risk. Follow the binding approval rules in `AGENTS.md`.
 - Prefer secure, maintainable, typed, observable and proportionate solutions. Avoid speculative abstractions and unnecessary infrastructure.
 - Test behavior and failure paths appropriate to the risk. Never weaken tests or safety controls to get a green result.
+- Treat issue/PR tracking as mandatory: create or update an actionable issue before implementation, record exact file/symbol before→after changes, acceptance criteria and tests, keep agent-independent handoff state, and make the PR close the issue on merge. The final tracker completion update waits until the PR is open and all required CI gates are green.
+- Test changed executable behavior wherever meaningful, prefer unit tests for isolated logic, and use the correct higher-level test boundary where appropriate. Minimise unrelated code changes and wasted compute without skipping required gates.
 - Review the final diff. Report **Changed**, **Verified**, **Not verified**, **Risks** and **Follow-ups** accurately. Never claim work or checks that did not happen.
 
 ## Skill ownership
